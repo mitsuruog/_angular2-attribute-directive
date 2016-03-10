@@ -1,0 +1,30 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Angular2 Directive Samples</a>
+    <p class="navbar-text navbar-right"><a href="https://github.com/mitsuruog/_angular2-attribute-directive" class="navbar-link">github</a></p>
+  </div>
+</nav>
+<div class="container">
+  <div class="jumbotron">
+    <h2>Angular2 Directive Samples</h2>
+    <ul>
+      <li my-highlight>Highlight me!</li>
+      <li my-highlight="green">Highlight me!</li>
+      <li my-highlight="yellow">Highlight me!</li>
+      <li my-highlight="pink">Highlight me!</li>
+    </ul>
+    <div>
+      <p>Pick a highlight color</p>
+      <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='#007bbb'"> 紺碧
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='#b7282e'"> 茜色
+      </label>
+      <label class="radio-inline">
+        <input type="radio" name="colors" (click)="color='#c3d825'"> 若草色
+      </label>
+      <div [my-highlight]="color" [defaultColor]="'#44617b'">Highlight me!</div>
+    </div>
+  </div>
+</div>
