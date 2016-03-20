@@ -38,7 +38,7 @@ describe('Test: HighlightDirective', () => {
         let div = fixture.nativeElement.querySelector('div');
 
         fixture.detectChanges();
-        expect(fixture.debugElement.nativeElement).toHaveText('highlight me');
+        expect(div).toHaveText('highlight me');
         expect(div.style.backgroundColor).toEqual('');
 
       });
