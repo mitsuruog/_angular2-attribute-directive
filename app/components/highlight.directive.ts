@@ -1,14 +1,14 @@
-import {Directive, ElementRef, Input} from 'angular2/core';
+import {Directive, ElementRef, Input, HostListener} from 'angular2/core';
 
 @Directive({
   selector: '[my-highlight]',
+  // [MEMO] @HostListenerで代用可能だったため置き換えた
   // `host`はdirectiveがある要素のことを指す
-  host: {
-    '(mouseenter)': 'handleMouseEnter()',
-    '(mouseleave)': 'handleMouseLeave()'
-  }
+  // host: {
+  //   '(mouseenter)': 'handleMouseEnter()',
+  //   '(mouseleave)': 'handleMouseLeave()'
+  // }
 })
-
 export class HighlightDirective {
   
   private _defaultColor: string = 'red';
@@ -25,10 +25,12 @@ export class HighlightDirective {
     private el: ElementRef
   ) { }
   
+  @HostListener('mouseenter')
   handleMouseEnter() {
     this.highlight(this.highlightColor || this._defaultColor);
   }
   
+  @HostListener('mouseleave')
   handleMouseLeave() {
     this.highlight(null);
   }
